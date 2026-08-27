@@ -1,0 +1,56 @@
+header {
+    text-align: left;
+    display: flex;
+    border-bottom: 1px solid #090909;
+    gap: 40px;
+    padding-left: 30px;
+    font-family: "Press Start 2P", cursive;
+    min-height: 10px;
+    color:aliceblue;
+    background-color: rgb(2, 2, 81);
+}
+.boton {
+    text-align: left;
+    display: flex;
+    gap: 50px;
+    font-family: "Press Start 2P", cursive;
+    border-left: 2px solid black;
+    padding-left: 20px;
+    align-items: center;
+    background-color: rgb(2, 2, 81);
+}
+.boton a{
+    border-right: 2px solid black;
+    color:aliceblue;
+    padding-right: 40px;
+    align-self: stretch;
+    align-items: center;
+    display: flex;
+    font-family: "Press Start 2P", cursive;
+}
+#contenido{
+    display: flex;
+}
+#geracao{
+    font-family: "Press Start 2P", cursive;
+    width: 12.7%;
+    color:aliceblue;
+    background-color: rgb(11, 11, 109);
+}
+#pokemons{
+    width: 87.3%;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+#geracao button{
+    background-color: rgb(11, 11, 109);
+    color: aliceblue;
+}
+.imagen-geracao img {
+    width: 50px;
+    height: auto;
+    position: relative;
+    top: 18px;
+}
