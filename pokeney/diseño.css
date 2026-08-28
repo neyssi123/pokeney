@@ -40,11 +40,34 @@ header {
 #pokemons{
     width: 87.3%;
     display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.info-pokemon{
+    display: flex;
+    gap: 30px;
+    
+}
+.info-pokemon img{
+  margin-right: 30px;
+}
+    
+.tipos {
+    display: flex;
+    gap: 30px;
+    margin-left: 50px;
 }
 #pokemons img{
     height: auto;
     height:80px;
-    border-bottom: 2px solid black;
+    padding:0px;
+}
+.carta-pokemon{
+    width: 100%;
+    padding: 0px;
+}
+.carta-pokemon hr {
+    margin: 0;
 }
 body{
     margin: 0px;
@@ -60,3 +83,57 @@ body{
     position: relative;
     top: 18px;
 }
+.tipo-fogo{
+    background-color: rgba(230, 96, 14, 0.755);
+}
+.tipo-normal{
+    background-color: rgba(229, 207, 193, 0.755);
+}
+.tipo-agua{
+    background-color: rgba(29, 55, 220, 0.755);
+}
+.tipo-planta{
+    background-color: rgba(8, 159, 0, 0.755);
+}
+.tipo-fogo{
+    background-color: rgba(205, 51, 0, 0.755);
+}
+.tipo-elétrico{
+    background-color: rgba(248, 236, 12, 0.755);
+}
+.tipo-Lutador{
+    background-color: rgba(238, 37, 6, 0.755);
+}
+.tipo-Venenoso{
+    background-color: rgba(170, 0, 255, 0.755);
+}
+.tipo-Terrestre{
+    background-color: rgba(255, 183, 0, 0.755);
+}
+.tipo-Psíquico {
+    background-color: rgba(252, 0, 218, 0.755);
+}
+.tipo-Inseto {
+    background-color: rgba(26, 255, 0, 0.755);
+}
+.tipo-Pedra {
+    background-color: rgba(139, 69, 19, 0.714);
+}
+.tipo-Fantasma {
+    background-color: rgba(22, 54, 119, 0.755);
+}
+.tipo-Dragão  {
+    background-color: rgba(4, 86, 240, 0.755);
+}
+.tipo-Sombrio  {
+    background-color: rgba(9, 52, 63, 0.755);
+}
+
+.tipo-Aço   {
+    background-color: rgba(46, 93, 150, 0.755);
+}
+
+.tipo-Fada   {
+    background-color: rgba(214, 78, 245, 0.755);
+}
+
