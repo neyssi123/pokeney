@@ -1,0 +1,44 @@
+#pokemon-img {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#pokemon-img img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+}
+
+#nome-pokemon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tipos {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#detalles-pokemon {
+    display: flex;
+    padding-left: 20px;
+    max-width: 600px;
+    overflow-wrap: break-word;
+}
+
+#caixa-destaque {
+    color: rgb(4, 4, 4);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+#caixa-destaque h3 {
+    margin-top: 0;
+    color: #0f0f0f;
+}
