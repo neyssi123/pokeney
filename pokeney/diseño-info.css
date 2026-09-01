@@ -12,6 +12,7 @@
 }
 
 #nome-pokemon {
+    padding-left: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,4 +42,19 @@
 #caixa-destaque h3 {
     margin-top: 0;
     color: #0f0f0f;
+}
+#ficha{
+    padding-left: 20px;
+}
+#ficha-img img{
+    width: 50px;
+    height: auto;
+}
+#ficha-img{
+  display: flex;
+  gap: 120px;                      
+}
+
+#ficha #caixa-destaque {
+    width: fit-content;
 }

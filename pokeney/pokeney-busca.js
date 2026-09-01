@@ -10,6 +10,14 @@ document.getElementById("numero").textContent = "#" + pokemon.numero;
 
 document.getElementById("descripcion").textContent = pokemon.descripcion;
 
+document.getElementById("altura").textContent = pokemon.altura;
+
+document.getElementById("peso").textContent = pokemon.peso;
+
+document.getElementById("habilidade").textContent = pokemon.habilidade;
+
+document.getElementById("localizacao").textContent = pokemon.localizacao;
+
 document.getElementById("imagen").src = pokemon.imagen;
 
 const tiposDiv = document.getElementById("tipos");
