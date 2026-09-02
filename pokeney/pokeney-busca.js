@@ -20,6 +20,26 @@ document.getElementById("localizacao").textContent = pokemon.localizacao;
 
 document.getElementById("imagen").src = pokemon.imagen;
 
+document.getElementById("evolucao1-imagem").src =
+    pokemon.evolucao[0].imagen;
+
+document.getElementById("evolucao1-nome").textContent =
+    pokemon.evolucao[0].nombre;
+
+
+document.getElementById("evolucao2-imagem").src =
+    pokemon.evolucao[1].imagen;
+
+document.getElementById("evolucao2-nome").textContent =
+    pokemon.evolucao[1].nombre;
+
+
+document.getElementById("evolucao3-imagem").src =
+    pokemon.evolucao[2].imagen;
+
+document.getElementById("evolucao3-nome").textContent =
+    pokemon.evolucao[2].nombre;
+
 const tiposDiv = document.getElementById("tipos");
 
 pokemon.tipos.forEach(tipo => {

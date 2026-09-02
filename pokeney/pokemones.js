@@ -18,13 +18,31 @@ const pokemones = {
         peso: "90.5 kg",
         habilidade: "Blaze",
         localizacao:"Kanto",
+        evolucao: [
+    {
+        nombre: "Charmander",
+        imagen: "imagenes/charmander.png"
+    },
+    {
+        nombre: "Charmeleon",
+        imagen: "imagenes/charmeleon.png"
+    },
+    {
+        nombre: "Charizard",
+        imagen: "imagenes/charizard.png"
+    }
+]
     },
 
     blastoise: {
-        numero: 25,
-        nombre: "Pikachu",
-        tipos: ["Eléctrico"],
+        numero: 9,
+        nombre: "Blastoise",
+        tipos: ["Água"],
         imagen: "imagenes/blastoise.png",
-        descripcion: "Un Pokémon de tipo Eléctrico."
+        descripcion: "Possui canhões de água de alta pressão embutidos em sua carapaça. Seus disparos são precisos e capazes de perfurar aço ou quebrar paredes de concreto espessas.",
+        altura:"1.6m",
+        peso: "85.5 kg",
+        habilidade: "Torrent",
+        localizacao:"Kanto",
     }
 };
