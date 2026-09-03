@@ -39,76 +39,158 @@
 
     <section id="evolucao">
 
-        <div id="caixa-evolucao">
+    <div id="caixa-evolucao">
 
-            <h3>Linha Evolutiva</h3>
+        <h3>Linha Evolutiva</h3>
 
-            <div id="linha-evolutiva">
+        <div id="linha-evolutiva"></div>
 
-                <div class="evolucao-item">
-                    <img id="evolucao1-imagem">
-                    <p id="evolucao1-nome"></p>
-                </div>
+    </div>
 
-                <div class="seta">→</div>
+</section>
 
-                <div class="evolucao-item">
-                    <img id="evolucao2-imagem">
-                    <p id="evolucao2-nome"></p>
-                </div>
+</div>
 
-                <div class="seta">→</div>
+    <div id="informacoes-pokemon">
 
-                <div class="evolucao-item">
-                    <img id="evolucao3-imagem">
-                    <p id="evolucao3-nome"></p>
+    <div id="coluna-esquerda">
+
+        <section id="detalles-pokemon">
+
+            <div id="caixa-destaque">
+                <h3>descrição</h3>
+                <p id="descripcion"></p>
+            </div>
+
+        </section>
+
+
+        <section id="ficha">
+
+            <div id="caixa-destaque">
+
+                <h3>Ficha Tecnica Rapida</h3>
+
+                <div id="ficha-img">
+
+                    <div class="ficha-item">
+                        <img src="imagenes/regra.png" alt="error">
+                        <p>altura</p>
+                        <div id="altura"></div>
+                    </div>
+
+                    <div class="ficha-item">
+                        <img src="imagenes/peso.png" alt="error">
+                        <p>peso</p>
+                        <div id="peso"></div>
+                    </div>
+
+                    <div class="ficha-item">
+                        <img src="imagenes/estrela.png" alt="error">
+                        <p>habilidade</p>
+                        <div id="habilidade"></div>
+                    </div>
+
+                    <div class="ficha-item">
+                        <img src="imagenes/localizacao.png" alt="error">
+                        <p>Região</p>
+                        <div id="localizacao"></div>
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+    </div>
+
+
+    <div id="coluna-direita">
+
+        <section id="bloco-fraquezas">
+
+            <div id="caixa-destaque">
+
+                <h3>fraquezas</h3>
+
+                <div id="fraquezas1">
+                    <p id="fraquezas"></p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="bloco-stats">
+
+            <div id="caixa-stats">
+
+                <h3>Estatísticas Base</h3>
+
+                <div class="stat">
+    <span class="stat-nome">HP</span>
+    <span id="stat-hp">0</span>
+
+    <div class="barra">
+        <div class="barra-preenchida" id="barra-hp"></div>
+    </div>
+</div>
+
+<div class="stat">
+    <span class="stat-nome">Ataque</span>
+    <span id="stat-ataque">0</span>
+
+    <div class="barra">
+        <div class="barra-preenchida" id="barra-ataque"></div>
+    </div>
+</div>
+
+<div class="stat">
+    <span class="stat-nome">Defesa</span>
+    <span id="stat-defesa">0</span>
+
+    <div class="barra">
+        <div class="barra-preenchida" id="barra-defesa"></div>
+    </div>
+</div>
+
+<div class="stat">
+    <span class="stat-nome">Ataque Esp.</span>
+    <span id="stat-ataque-esp">0</span>
+
+    <div class="barra">
+        <div class="barra-preenchida" id="barra-ataque-esp"></div>
+    </div>
+</div>
+
+<div class="stat">
+    <span class="stat-nome">Defesa Esp.</span>
+    <span id="stat-defesa-esp">0</span>
+
+    <div class="barra">
+        <div class="barra-preenchida" id="barra-defesa-esp"></div>
+    </div>
+</div>
+
+<div class="stat">
+    <span class="stat-nome">Velocidade</span>
+    <span id="stat-velocidade">0</span>
+
+    <div class="barra">
+        <div class="barra-preenchida" id="barra-velocidade"></div>
+    </div>
+</div>
+
+            </div>
+
+        </section>
+
+    </div>
 
 </div>
 
-    <section id="detalles-pokemon">
-    <div id="caixa-destaque">
-       <h3>descrição</h3>
-        <p id="descripcion"></p>
-    </div>
-    </section>
-
-    <section id="ficha">
-        <div id="caixa-destaque">
-    <h3>Ficha Tecnica Rapida</h3>
-    <div id="ficha-img">
-        <div class="ficha-item">
-            <img src="imagenes/regra.png" alt="error">
-            <p>altura</p>
-            <div id="altura"></div>
-        </div>
-        
-        <div class="ficha-item">
-            <img src="imagenes/peso.png" alt="error">
-            <p>peso</p>
-            <div id="peso"></div>
-        </div>
-        
-        <div class="ficha-item">
-            <img src="imagenes/estrela.png" alt="error">
-            <p>habilidade</p>
-            <div id="habilidade"></div>
-        </div>
-        
-        <div class="ficha-item">
-            <img src="imagenes/localizacao.png" alt="error">
-            <p>Região</p>
-            <div id="localizacao"></div>
-        </div>
-    </div>
-        </div>
-    </section>
+   
     <script src="pokemones.js"></script>
     <script src="pokeney-busca.js"></script>
 

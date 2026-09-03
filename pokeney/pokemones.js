@@ -18,6 +18,15 @@ const pokemones = {
         peso: "90.5 kg",
         habilidade: "Blaze",
         localizacao:"Kanto",
+        fraquezas:"Pedra (4x), Água, Elétrico",
+        stats: {
+        hp: 78,
+        ataque: 84,
+        defesa: 78,
+        ataqueEsp: 109,
+        defesaEsp: 85,
+        velocidade: 100
+    },
         evolucao: [
     {
         nombre: "Charmander",
