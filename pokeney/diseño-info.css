@@ -4,12 +4,19 @@
     flex-direction: column;
 }
 
-#pokemon-img img {
+#pokemon-img > img {
     display: block;
     width: 200px;
     height: 200px;
     margin: 10px auto;
     margin-left: 150px;
+}
+
+.tipo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin: 0;
 }
 
 #nome-pokemon {
@@ -20,10 +27,22 @@
 }
 
 #tipos {
-    width: 100%;
+     width: 100%;
     margin-top: 10px;
-    text-align: center;
     margin-left: 40px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.tipo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
 }
 
 #detalles-pokemon {
@@ -165,7 +184,7 @@
 .barra-preenchida {
     height: 100%;
     width: 0%;
-    background-color: rgb(228, 7, 7);
+    background-color: rgb(7, 7, 7);
 }
 
 #informacoes-pokemon {

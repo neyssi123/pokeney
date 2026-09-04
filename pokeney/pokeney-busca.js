@@ -1,14 +1,14 @@
 const parametros = new URLSearchParams(window.location.search);
 
-const nombrePokemon = parametros.get("pokemon");
+const nomePokemon = parametros.get("pokemon");
 
-const pokemon = pokemones[nombrePokemon];
+const pokemon = pokemones[nomePokemon];
 
-document.getElementById("nombre").textContent = pokemon.nombre;
+document.getElementById("nome").textContent = pokemon.nome;
 
 document.getElementById("numero").textContent = "#" + pokemon.numero;
 
-document.getElementById("descripcion").textContent = pokemon.descripcion;
+document.getElementById("descrição").textContent = pokemon.descrição;
 
 document.getElementById("altura").textContent = pokemon.altura;
 
@@ -18,75 +18,91 @@ document.getElementById("habilidade").textContent = pokemon.habilidade;
 
 document.getElementById("localizacao").textContent = pokemon.localizacao;
 
-document.getElementById("imagen").src = pokemon.imagen;
+document.getElementById("imagem").src = pokemon.imagem;
 
 document.getElementById("fraquezas").textContent = pokemon.fraquezas;
 
 document.getElementById("stat-hp").textContent = pokemon.stats.hp;
 document.getElementById("stat-ataque").textContent = pokemon.stats.ataque;
 document.getElementById("stat-defesa").textContent = pokemon.stats.defesa;
-document.getElementById("stat-ataque-esp").textContent = pokemon.stats.ataqueEsp;
-document.getElementById("stat-defesa-esp").textContent = pokemon.stats.defesaEsp;
-document.getElementById("stat-velocidade").textContent = pokemon.stats.velocidade;
+document.getElementById("stat-ataque-esp").textContent =
+  pokemon.stats.ataqueEsp;
+document.getElementById("stat-defesa-esp").textContent =
+  pokemon.stats.defesaEsp;
+document.getElementById("stat-velocidade").textContent =
+  pokemon.stats.velocidade;
 
 const maxStat = 255;
 
 document.getElementById("barra-hp").style.width =
-    (pokemon.stats.hp / maxStat) * 100 + "%";
+  (pokemon.stats.hp / maxStat) * 100 + "%";
 
 document.getElementById("barra-ataque").style.width =
-    (pokemon.stats.ataque / maxStat) * 100 + "%";
+  (pokemon.stats.ataque / maxStat) * 100 + "%";
 
 document.getElementById("barra-defesa").style.width =
-    (pokemon.stats.defesa / maxStat) * 100 + "%";
+  (pokemon.stats.defesa / maxStat) * 100 + "%";
 
 document.getElementById("barra-ataque-esp").style.width =
-    (pokemon.stats.ataqueEsp / maxStat) * 100 + "%";
+  (pokemon.stats.ataqueEsp / maxStat) * 100 + "%";
 
 document.getElementById("barra-defesa-esp").style.width =
-    (pokemon.stats.defesaEsp / maxStat) * 100 + "%";
+  (pokemon.stats.defesaEsp / maxStat) * 100 + "%";
 
 document.getElementById("barra-velocidade").style.width =
-    (pokemon.stats.velocidade / maxStat) * 100 + "%";
-    
+  (pokemon.stats.velocidade / maxStat) * 100 + "%";
+
 const linha = document.getElementById("linha-evolutiva");
 
 linha.innerHTML = "";
 
 pokemon.evolucao.forEach((evolucao, index) => {
+  const item = document.createElement("div");
+  item.classList.add("evolucao-item");
 
-    const item = document.createElement("div");
-    item.classList.add("evolucao-item");
+  const imagem = document.createElement("img");
+  imagem.src = evolucao.imagem;
 
-    const imagem = document.createElement("img");
-    imagem.src = evolucao.imagen;
+  const nome = document.createElement("a");
+  nome.textContent = evolucao.nome;
+  
+  nome.href = "pokemon-info.html?pokemon=" + evolucao.id;
 
-    const nome = document.createElement("p");
-    nome.textContent = evolucao.nombre;
+  item.appendChild(imagem);
+  item.appendChild(nome);
 
-    item.appendChild(imagem);
-    item.appendChild(nome);
+  linha.appendChild(item);
 
-    linha.appendChild(item);
+  if (index < pokemon.evolucao.length - 1) {
+    const seta = document.createElement("span");
 
-    if (index < pokemon.evolucao.length - 1) {
+    seta.textContent = "→";
+    seta.classList.add("seta");
 
-        const seta = document.createElement("span");
-
-        seta.textContent = "→";
-        seta.classList.add("seta");
-
-        linha.appendChild(seta);
-    }
-
+    linha.appendChild(seta);
+  }
 });
+
 const tiposDiv = document.getElementById("tipos");
 
 pokemon.tipos.forEach(tipo => {
 
-    const tipoElemento = document.createElement("span");
+    const tipoElemento = document.createElement("div");
 
-    tipoElemento.textContent = tipo;
+    tipoElemento.classList.add("tipo");
+
+    const imagemTipo = document.createElement("img");
+
+    imagemTipo.src = "imagenes/tipo-" + tipo.toLowerCase() + ".png";
+
+    imagemTipo.alt = tipo;
+
+    const textoTipo = document.createElement("span");
+
+    textoTipo.textContent = tipo;
+
+    tipoElemento.appendChild(imagemTipo);
+    tipoElemento.appendChild(textoTipo);
 
     tiposDiv.appendChild(tipoElemento);
 
