@@ -20,6 +20,8 @@ document.getElementById("localizacao").textContent = pokemon.localizacao;
 
 document.getElementById("imagem").src = pokemon.imagem;
 
+document.getElementById("shiny").src = pokemon.shiny;
+
 document.getElementById("stat-hp").textContent = pokemon.stats.hp;
 document.getElementById("stat-ataque").textContent = pokemon.stats.ataque;
 document.getElementById("stat-defesa").textContent = pokemon.stats.defesa;

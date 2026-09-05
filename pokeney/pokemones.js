@@ -117,6 +117,7 @@ const pokemones = {
     charizard: {
         numero: 6,
         nome: "Charizard",
+        shiny:"imagenes/charizard-shiny.png",
         tipos: ["Fogo", "Voador"],
         imagem: "imagenes/charizard.png",
         descrição: "Um Pokémon dragão cospe-fogo extremamente orgulhoso. Ele voa alto em busca de oponentes fortes e sua chama na cauda queima com mais intensidade conforme acumula experiência em batalha.",
@@ -161,6 +162,7 @@ const pokemones = {
         nome: "Charmander",
         tipos: ["Fogo"],
         imagem: "imagenes/charmander.png",
+         shiny:"imagenes/charmander-shiny.png",
         descrição: "A chama na ponta de sua cauda indica a força de sua vida. Se estiver saudável, a chama queimará intensamente.",
         altura:"0.6m",
         peso: "8.5 kg",

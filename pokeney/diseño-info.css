@@ -4,12 +4,14 @@
     flex-direction: column;
 }
 
-#pokemon-img > img {
-    display: block;
-    width: 200px;
-    height: 200px;
-    margin: 10px auto;
-    margin-left: 150px;
+#nome-shiny{
+    display: flex;
+    gap:200px;
+    align-items: center;
+    margin-left: 40px;
+}
+#nome-pokemon h2{
+   margin:0px;
 }
 
 .tipo img {
@@ -22,14 +24,15 @@
 #nome-pokemon {
     padding-left: 50px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 170px;
 }
 
 #tipos {
-     width: 100%;
+    width: 100%;
     margin-top: 10px;
-    margin-left: 40px;
+    margin-left: 90px;
 
     display: flex;
     flex-direction: row;
@@ -218,4 +221,13 @@
     width: 30px;
     height: 30px;
     object-fit: contain;
+}
+
+#shiny-img{
+display: flex;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    margin-left: 30px;
+    gap: 50px;
 }
