@@ -20,8 +20,6 @@ document.getElementById("localizacao").textContent = pokemon.localizacao;
 
 document.getElementById("imagem").src = pokemon.imagem;
 
-document.getElementById("fraquezas").textContent = pokemon.fraquezas;
-
 document.getElementById("stat-hp").textContent = pokemon.stats.hp;
 document.getElementById("stat-ataque").textContent = pokemon.stats.ataque;
 document.getElementById("stat-defesa").textContent = pokemon.stats.defesa;
@@ -105,5 +103,34 @@ pokemon.tipos.forEach(tipo => {
     tipoElemento.appendChild(textoTipo);
 
     tiposDiv.appendChild(tipoElemento);
+
+});
+
+const fraquezasDiv = document.getElementById("fraquezas");
+
+pokemon.fraquezas.forEach(fraqueza => {
+
+    const fraquezaElemento = document.createElement("div");
+
+    fraquezaElemento.classList.add("fraqueza");
+
+    const imagemFraqueza = document.createElement("img");
+
+    imagemFraqueza.src =
+        "imagenes/tipo-" + fraqueza.tipo.toLowerCase() + ".png";
+
+    imagemFraqueza.alt = fraqueza.tipo;
+
+
+    const textoFraqueza = document.createElement("span");
+
+    textoFraqueza.textContent =
+        fraqueza.tipo + " (" + fraqueza.multiplicador + ")";
+
+
+    fraquezaElemento.appendChild(imagemFraqueza);
+    fraquezaElemento.appendChild(textoFraqueza);
+
+    fraquezasDiv.appendChild(fraquezaElemento);
 
 });

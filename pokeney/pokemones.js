@@ -124,7 +124,11 @@ const pokemones = {
         peso: "90.5 kg",
         habilidade: "Blaze",
         localizacao:"Kanto",
-        fraquezas:"Pedra (4x), Água, Elétrico",
+        fraquezas: [
+        { tipo: "Pedra", multiplicador: "4x" },
+        { tipo: "agua", multiplicador: "2x" },
+        { tipo: "Elétrico", multiplicador: "2x" }
+        ],
         stats: {
         hp: 78,
         ataque: 84,
@@ -162,7 +166,7 @@ const pokemones = {
         peso: "8.5 kg",
         habilidade: "Blaze",
         localizacao:"Kanto",
-        fraquezas:"Água, Terra, Pedra",
+        fraquezas: ["Pedra", "agua", "Elétrico"],
         stats: {
         hp: 39,
         ataque: 52,

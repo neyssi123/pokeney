@@ -202,3 +202,20 @@
     width: 540px;
 }
 
+#fraquezas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fraqueza {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.fraqueza img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
