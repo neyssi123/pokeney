@@ -1,11 +1,10 @@
 const pokemones = {
-
   gible: {
     numero: 443,
     nome: "gible",
     tipos: ["Dragão", "Terrestre"],
     imagem: "imagenes/gible.png",
-    shiny:"imagenes/gible-shiny.png",
+    shiny: "imagenes/gible-shiny.png",
     descrição:
       "Mora em buracos aquecidos pelo calor geotérmico. Se algo se aproximar de sua toca, ele ataca de surpresa com sua boca enorme.",
     altura: "0.7m",
@@ -94,7 +93,8 @@ const pokemones = {
     shiny: "imagenes/garchomp-shiny.png",
     tipos: ["Dragão", "Terrestre"],
     imagem: "imagenes/garchomp.png",
-    descrição:"Quando ele se dobra e estica as asas, parece um jato de combate. Ele voa em velocidade sônica procurando por presas.",
+    descrição:
+      "Quando ele se dobra e estica as asas, parece um jato de combate. Ele voa em velocidade sônica procurando por presas.",
     altura: "1.9m",
     peso: "95.0 kg",
     habilidade: "Sand Veil",
@@ -137,7 +137,8 @@ const pokemones = {
     shiny: "imagenes/charizard-shiny.png",
     tipos: ["Fogo", "Voador"],
     imagem: "imagenes/charizard.png",
-    descrição:"Um Pokémon dragão cospe-fogo extremamente orgulhoso. Ele voa alto em busca de oponentes fortes e sua chama na cauda queima com mais intensidade conforme acumula experiência em batalha.",
+    descrição:
+      "Um Pokémon dragão cospe-fogo extremamente orgulhoso. Ele voa alto em busca de oponentes fortes e sua chama na cauda queima com mais intensidade conforme acumula experiência em batalha.",
     altura: "1.7m",
     peso: "90.5 kg",
     habilidade: "Blaze",
@@ -268,7 +269,8 @@ const pokemones = {
     tipos: ["Agua"],
     imagem: "imagenes/blastoise.png",
     shiny: "imagenes/blastoise-shiny.png",
-    descrição:"Os canhões de água em seu casco disparam jatos capazes de perfurar aço grosso. Ele se fixa firmemente no chão para suportar o recuo dos disparos.",
+    descrição:
+      "Os canhões de água em seu casco disparam jatos capazes de perfurar aço grosso. Ele se fixa firmemente no chão para suportar o recuo dos disparos.",
     altura: "1.6m",
     peso: "85.5kg",
     habilidade: "Torrent",
@@ -283,7 +285,7 @@ const pokemones = {
       defesa: 100,
       ataqueEsp: 85,
       defesaEsp: 105,
-      velocidade: 78
+      velocidade: 78,
     },
     evolucao: [
       {
@@ -310,7 +312,8 @@ const pokemones = {
     tipos: ["Agua"],
     imagem: "imagenes/wartortle.png",
     shiny: "imagenes/wartortle-shiny.png",
-    descrição:"Sua cauda longa e felpuda é um símbolo de longevidade. É muito popular como mascote entre pessoas mais velhas.",
+    descrição:
+      "Sua cauda longa e felpuda é um símbolo de longevidade. É muito popular como mascote entre pessoas mais velhas.",
     altura: "1.0m",
     peso: "22.5kg",
     habilidade: "Torrent",
@@ -325,7 +328,7 @@ const pokemones = {
       defesa: 80,
       ataqueEsp: 65,
       defesaEsp: 80,
-      velocidade: 58
+      velocidade: 58,
     },
     evolucao: [
       {
@@ -352,7 +355,8 @@ const pokemones = {
     tipos: ["Agua"],
     imagem: "imagenes/squirtle.png",
     shiny: "imagenes/squirtle-shiny.png",
-    descrição:"Quando se sente ameaçado, recolhe seus membros e pescoço para dentro do casco. Em seguida, espirra água com grande força.",
+    descrição:
+      "Quando se sente ameaçado, recolhe seus membros e pescoço para dentro do casco. Em seguida, espirra água com grande força.",
     altura: "0.5m",
     peso: "9.0kg",
     habilidade: "Torrent",
@@ -367,7 +371,7 @@ const pokemones = {
       defesa: 65,
       ataqueEsp: 50,
       defesaEsp: 64,
-      velocidade: 43
+      velocidade: 43,
     },
     evolucao: [
       {
@@ -387,5 +391,4 @@ const pokemones = {
       },
     ],
   },
-
-  };
+};

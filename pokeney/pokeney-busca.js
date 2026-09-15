@@ -65,7 +65,7 @@ pokemon.evolucao.forEach((evolucao, index) => {
 
   const nome = document.createElement("a");
   nome.textContent = evolucao.nome;
-  
+
   nome.href = "pokemon-info.html?pokemon=" + evolucao.id;
 
   item.appendChild(imagem);
@@ -85,54 +85,47 @@ pokemon.evolucao.forEach((evolucao, index) => {
 
 const tiposDiv = document.getElementById("tipos");
 
-pokemon.tipos.forEach(tipo => {
+pokemon.tipos.forEach((tipo) => {
+  const tipoElemento = document.createElement("div");
 
-    const tipoElemento = document.createElement("div");
+  tipoElemento.classList.add("tipo");
 
-    tipoElemento.classList.add("tipo");
+  const imagemTipo = document.createElement("img");
 
-    const imagemTipo = document.createElement("img");
+  imagemTipo.src = "imagenes/tipo-" + tipo.toLowerCase() + ".png";
 
-    imagemTipo.src = "imagenes/tipo-" + tipo.toLowerCase() + ".png";
+  imagemTipo.alt = tipo;
 
-    imagemTipo.alt = tipo;
+  const textoTipo = document.createElement("span");
 
-    const textoTipo = document.createElement("span");
+  textoTipo.textContent = tipo;
 
-    textoTipo.textContent = tipo;
+  tipoElemento.appendChild(imagemTipo);
+  tipoElemento.appendChild(textoTipo);
 
-    tipoElemento.appendChild(imagemTipo);
-    tipoElemento.appendChild(textoTipo);
-
-    tiposDiv.appendChild(tipoElemento);
-
+  tiposDiv.appendChild(tipoElemento);
 });
 
 const fraquezasDiv = document.getElementById("fraquezas");
 
-pokemon.fraquezas.forEach(fraqueza => {
+pokemon.fraquezas.forEach((fraqueza) => {
+  const fraquezaElemento = document.createElement("div");
 
-    const fraquezaElemento = document.createElement("div");
+  fraquezaElemento.classList.add("fraqueza");
 
-    fraquezaElemento.classList.add("fraqueza");
+  const imagemFraqueza = document.createElement("img");
 
-    const imagemFraqueza = document.createElement("img");
+  imagemFraqueza.src = "imagenes/tipo-" + fraqueza.tipo.toLowerCase() + ".png";
 
-    imagemFraqueza.src =
-        "imagenes/tipo-" + fraqueza.tipo.toLowerCase() + ".png";
+  imagemFraqueza.alt = fraqueza.tipo;
 
-    imagemFraqueza.alt = fraqueza.tipo;
+  const textoFraqueza = document.createElement("span");
 
+  textoFraqueza.textContent =
+    fraqueza.tipo + " (" + fraqueza.multiplicador + ")";
 
-    const textoFraqueza = document.createElement("span");
+  fraquezaElemento.appendChild(imagemFraqueza);
+  fraquezaElemento.appendChild(textoFraqueza);
 
-    textoFraqueza.textContent =
-        fraqueza.tipo + " (" + fraqueza.multiplicador + ")";
-
-
-    fraquezaElemento.appendChild(imagemFraqueza);
-    fraquezaElemento.appendChild(textoFraqueza);
-
-    fraquezasDiv.appendChild(fraquezaElemento);
-
+  fraquezasDiv.appendChild(fraquezaElemento);
 });
