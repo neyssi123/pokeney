@@ -125,6 +125,20 @@ body{
 
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 25px;
+    background-color: #111b35;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+}
+
 .tipo-fogo{
     background-color: rgba(230, 96, 14, 0.755);
 }

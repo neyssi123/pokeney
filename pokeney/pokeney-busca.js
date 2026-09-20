@@ -25,12 +25,9 @@ document.getElementById("shiny").src = pokemon.shiny;
 document.getElementById("stat-hp").textContent = pokemon.stats.hp;
 document.getElementById("stat-ataque").textContent = pokemon.stats.ataque;
 document.getElementById("stat-defesa").textContent = pokemon.stats.defesa;
-document.getElementById("stat-ataque-esp").textContent =
-  pokemon.stats.ataqueEsp;
-document.getElementById("stat-defesa-esp").textContent =
-  pokemon.stats.defesaEsp;
-document.getElementById("stat-velocidade").textContent =
-  pokemon.stats.velocidade;
+document.getElementById("stat-ataque-esp").textContent = pokemon.stats.ataqueEsp;
+document.getElementById("stat-defesa-esp").textContent = pokemon.stats.defesaEsp;
+document.getElementById("stat-velocidade").textContent = pokemon.stats.velocidade;
 
 const maxStat = 255;
 
