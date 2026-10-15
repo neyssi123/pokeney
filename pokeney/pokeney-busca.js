@@ -1,128 +1,19 @@
-const parametros = new URLSearchParams(window.location.search);
-
-const nomePokemon = parametros.get("pokemon");
-
-const pokemon = pokemones[nomePokemon];
-
-document.getElementById("nome").textContent = pokemon.nome;
-
-document.getElementById("numero").textContent = "#" + pokemon.numero;
-
-document.getElementById("descrição").textContent = pokemon.descrição;
-
-document.getElementById("altura").textContent = pokemon.altura;
-
-document.getElementById("peso").textContent = pokemon.peso;
-
-document.getElementById("habilidade").textContent = pokemon.habilidade;
-
-document.getElementById("localizacao").textContent = pokemon.localizacao;
-
-document.getElementById("imagem").src = pokemon.imagem;
-
-document.getElementById("shiny").src = pokemon.shiny;
-
-document.getElementById("stat-hp").textContent = pokemon.stats.hp;
-document.getElementById("stat-ataque").textContent = pokemon.stats.ataque;
-document.getElementById("stat-defesa").textContent = pokemon.stats.defesa;
-document.getElementById("stat-ataque-esp").textContent = pokemon.stats.ataqueEsp;
-document.getElementById("stat-defesa-esp").textContent = pokemon.stats.defesaEsp;
-document.getElementById("stat-velocidade").textContent = pokemon.stats.velocidade;
-
-const maxStat = 255;
-
-document.getElementById("barra-hp").style.width =
-  (pokemon.stats.hp / maxStat) * 100 + "%";
-
-document.getElementById("barra-ataque").style.width =
-  (pokemon.stats.ataque / maxStat) * 100 + "%";
-
-document.getElementById("barra-defesa").style.width =
-  (pokemon.stats.defesa / maxStat) * 100 + "%";
-
-document.getElementById("barra-ataque-esp").style.width =
-  (pokemon.stats.ataqueEsp / maxStat) * 100 + "%";
-
-document.getElementById("barra-defesa-esp").style.width =
-  (pokemon.stats.defesaEsp / maxStat) * 100 + "%";
-
-document.getElementById("barra-velocidade").style.width =
-  (pokemon.stats.velocidade / maxStat) * 100 + "%";
-
-const linha = document.getElementById("linha-evolutiva");
-
-linha.innerHTML = "";
-
-pokemon.evolucao.forEach((evolucao, index) => {
-  const item = document.createElement("div");
-  item.classList.add("evolucao-item");
-
-  const imagem = document.createElement("img");
-  imagem.src = evolucao.imagem;
-
-  const nome = document.createElement("a");
-  nome.textContent = evolucao.nome;
-
-  nome.href = "pokemon-info.html?pokemon=" + evolucao.id;
-
-  item.appendChild(imagem);
-  item.appendChild(nome);
-
-  linha.appendChild(item);
-
-  if (index < pokemon.evolucao.length - 1) {
-    const seta = document.createElement("span");
-
-    seta.textContent = "→";
-    seta.classList.add("seta");
-
-    linha.appendChild(seta);
-  }
-});
-
-const tiposDiv = document.getElementById("tipos");
-
-pokemon.tipos.forEach((tipo) => {
-  const tipoElemento = document.createElement("div");
-
-  tipoElemento.classList.add("tipo");
-
-  const imagemTipo = document.createElement("img");
-
-  imagemTipo.src = "imagenes/tipo-" + tipo.toLowerCase() + ".png";
-
-  imagemTipo.alt = tipo;
-
-  const textoTipo = document.createElement("span");
-
-  textoTipo.textContent = tipo;
-
-  tipoElemento.appendChild(imagemTipo);
-  tipoElemento.appendChild(textoTipo);
-
-  tiposDiv.appendChild(tipoElemento);
-});
-
-const fraquezasDiv = document.getElementById("fraquezas");
-
-pokemon.fraquezas.forEach((fraqueza) => {
-  const fraquezaElemento = document.createElement("div");
-
-  fraquezaElemento.classList.add("fraqueza");
-
-  const imagemFraqueza = document.createElement("img");
-
-  imagemFraqueza.src = "imagenes/tipo-" + fraqueza.tipo.toLowerCase() + ".png";
-
-  imagemFraqueza.alt = fraqueza.tipo;
-
-  const textoFraqueza = document.createElement("span");
-
-  textoFraqueza.textContent =
-    fraqueza.tipo + " (" + fraqueza.multiplicador + ")";
-
-  fraquezaElemento.appendChild(imagemFraqueza);
-  fraquezaElemento.appendChild(textoFraqueza);
-
-  fraquezasDiv.appendChild(fraquezaElemento);
-});
+// Página de detalhes alimentada pela PokéAPI, mantendo dados personalizados de pokemones.js.
+const API='https://pokeapi.co/api/v2';
+const params=new URLSearchParams(location.search);
+const identificador=(params.get('pokemon')||'').toLowerCase();
+const tiposPt={normal:'Normal',fire:'Fogo',water:'Água',electric:'Elétrico',grass:'Planta',ice:'Gelo',fighting:'Lutador',poison:'Veneno',ground:'Terrestre',flying:'Voador',psychic:'Psíquico',bug:'Inseto',rock:'Pedra',ghost:'Fantasma',dragon:'Dragão',dark:'Sombrio',steel:'Aço',fairy:'Fada'};
+const tipoArquivo={fire:'fogo',water:'agua',electric:'eletrico',grass:'planta',ice:'gelo',fighting:'lutador',poison:'veneno',ground:'terrestre',flying:'voador',psychic:'psiquico',bug:'inseto',rock:'pedra',ghost:'fantasma',dragon:'dragao',dark:'sombrio',steel:'aco',fairy:'fada',normal:'normal'};
+const el=id=>document.getElementById(id);
+function texto(id,valor){const e=el(id);if(e)e.textContent=valor??'—';}
+function tipoNome(t){return tiposPt[t]||t;}
+function imagemTipo(t){return 'imagenes/tipo-'+(tipoArquivo[t]||t)+'.png';}
+function imagemPokemon(p,shiny=false){return p.sprites?.other?.['official-artwork']?.[shiny?'front_shiny':'front_default']||p.sprites?.[shiny?'front_shiny':'front_default']||'';}
+function nomeLegivel(s){return s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());}
+async function get(url){const r=await fetch(url);if(!r.ok)throw Error('A API respondeu '+r.status);return r.json();}
+function mostrarTipos(tipos){const box=el('tipos');if(!box)return;box.replaceChildren();tipos.forEach(item=>{const t=item.type?.name||item;const div=document.createElement('div');div.className='tipo';const img=document.createElement('img');img.src=imagemTipo(t);img.alt=tipoNome(t);img.onerror=()=>img.style.display='none';const span=document.createElement('span');span.textContent=tipoNome(t);div.append(img,span);box.appendChild(div);});}
+function mostrarStats(p){const mapa={'hp':'hp','attack':'ataque','defense':'defesa','special-attack':'ataque-esp','special-defense':'defesa-esp','speed':'velocidade'};p.stats.forEach(s=>{const chave=mapa[s.stat.name];if(!chave)return;texto('stat-'+chave,s.base_stat);const barra=el('barra-'+chave);if(barra)barra.style.width=Math.min(100,s.base_stat/255*100)+'%';});}
+async function mostrarFraquezas(tipos){const box=el('fraquezas');if(!box)return;box.replaceChildren();const mult={};for(const item of tipos){const tipo=item.type.name;const d=await get(item.type.url);d.damage_relations.double_damage_from.forEach(x=>mult[x.name]=(mult[x.name]||1)*2);d.damage_relations.half_damage_from.forEach(x=>mult[x.name]=(mult[x.name]||1)*0.5);d.damage_relations.no_damage_from.forEach(x=>mult[x.name]=0);}Object.entries(mult).filter(([,v])=>v>1).sort((a,b)=>b[1]-a[1]).forEach(([t,v])=>{const div=document.createElement('div');div.className='fraqueza';const img=document.createElement('img');img.src=imagemTipo(t);img.alt=tipoNome(t);img.onerror=()=>img.style.display='none';const span=document.createElement('span');span.textContent=tipoNome(t)+' ('+v+'x)';div.append(img,span);box.appendChild(div);});if(!box.children.length)box.textContent='Nenhuma fraqueza calculada.';}
+async function mostrarEvolucao(species){const box=el('linha-evolutiva');if(!box)return;box.replaceChildren();try{const especie=await get(species.url);const cadeia=await get(especie.evolution_chain.url);const nomes=[];function percorrer(no){nomes.push(no.species.name);no.evolves_to.forEach(percorrer);}percorrer(cadeia.chain);const unicos=[...new Set(nomes)];const dados=await Promise.all(unicos.map(async n=>{try{return await get(`${API}/pokemon/${n}`);}catch{return null;}}));dados.filter(Boolean).forEach((p,i,arr)=>{const item=document.createElement('div');item.className='evolucao-item';const img=document.createElement('img');img.src=imagemPokemon(p);img.alt=p.name;const a=document.createElement('a');a.textContent=nomeLegivel(p.name);a.href='pokemon-info.html?pokemon='+encodeURIComponent(p.name);item.append(img,a);box.appendChild(item);if(i<arr.length-1){const seta=document.createElement('span');seta.className='seta';seta.textContent='→';box.appendChild(seta);}});}catch(e){box.textContent='Linha evolutiva indisponível.';}}
+async function iniciar(){if(!identificador){texto('nome','Pokémon não informado');return;}try{const p=await get(`${API}/pokemon/${encodeURIComponent(identificador)}`);const nome=p.name;const local=(typeof pokemones!=='undefined'?(pokemones[nome]||pokemones[String(p.id)]):null)||{};const species=await get(p.species.url);texto('nome',nomeLegivel(nome));texto('numero','#'+String(p.id).padStart(3,'0'));texto('descrição',local.descrição||'Descrição não cadastrada.');const img=el('imagem');if(img){img.src=imagemPokemon(p);img.alt=nome;}const shiny=el('shiny');if(shiny){shiny.src=imagemPokemon(p,true);shiny.alt=nome+' shiny';}mostrarTipos(p.types);texto('altura',(p.height/10).toFixed(1)+' m');texto('peso',(p.weight/10).toFixed(1)+' kg');const hab=p.abilities.map(a=>nomeLegivel(a.ability.name)+(a.is_hidden?' (oculta)':'')).join(', ');texto('habilidade',hab);const regiao=species.generation?.name?.replace('generation-','')||'';const regioes={'i':'Kanto','ii':'Johto','iii':'Hoenn','iv':'Sinnoh','v':'Unova','vi':'Kalos','vii':'Alola','viii':'Galar','ix':'Paldea'};texto('localizacao',local.localizacao||regioes[regiao]||nomeLegivel(regiao));mostrarStats(p);await Promise.allSettled([mostrarFraquezas(p.types),mostrarEvolucao(p.species)]);}catch(e){console.error(e);texto('nome','Pokémon não encontrado');texto('descrição','Não foi possível carregar os dados. Confira o nome na URL e sua conexão.');}}
+iniciar();
