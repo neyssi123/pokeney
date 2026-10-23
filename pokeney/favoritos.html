@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokeney - Favoritos</title>
+  <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+    <header>
+      <h1>pokeney</h1>
+      <div class="boton">
+        <a href="#"><h3>Início</h3></a>
+        <a href="pokeney.html"><h3>Pokémons</h3></a>
+        <a href="favoritos.html"><h3>Pokémons favoritos</h3></a>
+        <a href="competitvo.html"><h3>Competitivo</h3></a>
+        <a href="itens.html"><h3>items</h3></a>
+        <a href="#"><h3>soporte</h3></a>
+      </div>
+    </header>
+
+  <main>
+    <h1>Seus Favoritos</h1>
+    <div id="status">Carregando...</div>
+    <div id="favoritos-grid" class="grid"></div>
+  </main>
+
+  <script src="favoritos.js"></script>
+  <script>
+    const gridFav = document.getElementById('favoritos-grid')
+    const statusFav = document.getElementById('status')
+
+    async function carregarFavoritos(){
+      const favs = getFavoritos()
+      
+      if(favs.length === 0){
+        statusFav.textContent = 'Você ainda não favoritou nada. Clica na ☆ dos Pokémons!'
+        return
+      }
+
+      statusFav.textContent = ''
+      gridFav.innerHTML = ''
+
+      for(const id of favs){
+        try{
+          const res = await fetch(`https://pokeapi.co/api/v2/item/${id}`)
+          if(res.ok){
+            const d = await res.json()
+            gridFav.innerHTML += `
+              <div class="item-card">
+                <span class="estrela ativo" onclick="toggleFavorito('${d.name}', this); this.parentElement.remove(); checaVazio()">★</span>
+                <img src="${d.sprites.default}">
+                <h3>${d.name.replace(/-/g, ' ')}</h3>
+                <p>${d.cost} ₽</p>
+              </div>
+            `
+          } else {
+            // se não for item, tenta como pokemon
+            const resPoke = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+            const p = await resPoke.json()
+            gridFav.innerHTML += `
+              <div class="item-card">
+                <span class="estrela ativo" onclick="toggleFavorito('${p.name}', this); this.parentElement.remove(); checaVazio()">★</span>
+                <img src="${p.sprites.front_default}">
+                <h3>${p.name}</h3>
+              </div>
+            `
+          }
+        }catch(e){}
+      }
+    }
+
+    function checaVazio(){
+      if(getFavoritos().length === 0){
+        statusFav.textContent = 'Você ainda não favoritou nada. Clica na ☆ dos Pokémons!'
+      }
+    }
+
+    carregarFavoritos()
+  </script>
+  <footer>
+      <h3>pokeney</h3>
+      <p>Wiki Pokémon feita para fins educativos.</p>
+      <p>© 2026 pokeney</p>
+    </footer>
+</body>
+</html>
