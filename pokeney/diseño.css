@@ -125,6 +125,22 @@ body{
 
 }
 
+.itens-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+  gap:16px;
+  padding:20px;
+}
+.item-card{
+  background:#1e293b;
+  border:1px solid #334155;
+  border-radius:12px;
+  padding:12px;
+  text-align:center;
+  color:#fff;
+}
+.item-card img{ width:60px; height:60px; }
+
 footer {
     display: flex;
     flex-direction: column;
@@ -134,6 +150,32 @@ footer {
     background-color: #111b35;
     color: white;
 }
+
+.estrela{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+.estrela.ativo{
+    color: #facc15;
+}
+.item-card{
+    position: relative;
+}
+
+.carta-pokemon{ position: relative; }
+.estrela{
+    position:absolute;
+    top: 8px; right: 10px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #94a3b8;
+    z-index: 5;
+}
+.estrela.ativo{ color: #facc15;}
 
 footer p {
     margin: 0;

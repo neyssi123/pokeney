@@ -11,7 +11,45 @@ const tipoArquivo={fire:'fogo',water:'agua',electric:'eletrico',grass:'planta',i
 const cache=new Map();
 function geracaoDo(id){return geracoes.findIndex(g=>id>=g.min&&id<=g.max)+1||9;}
 function nomeTipo(t){return tiposPt[t]||t;}
-function criarCarta(p){const carta=document.createElement('div');carta.className='carta-pokemon tipo-'+(tipoArquivo[p.types[0]?.type.name]||p.types[0]?.type.name||'normal');carta.dataset.id=p.id;carta.dataset.nome=p.name;carta.dataset.geracao=geracaoDo(p.id);const info=document.createElement('div');info.className='info-pokemon';const img=document.createElement('img');img.src=p.sprites?.other?.['official-artwork']?.front_default||p.sprites?.front_default||'';img.alt=p.name;img.loading='lazy';const num=document.createElement('h3');num.textContent='#'+String(p.id).padStart(3,'0');const a=document.createElement('a');a.href='pokemon-info.html?pokemon='+encodeURIComponent(p.name);const nome=document.createElement('h3');nome.textContent=p.name;a.appendChild(nome);const tipos=document.createElement('div');tipos.className='tipos';p.types.forEach(x=>{const tipo=x.type.name;const ic=document.createElement('img');ic.src='imagenes/tipo-'+(tipoArquivo[tipo]||tipo)+'.png';ic.alt='';ic.onerror=()=>ic.style.display='none';const label=document.createElement('h3');label.textContent=nomeTipo(tipo);tipos.append(ic,label);});info.append(img,num,a,tipos);carta.appendChild(info);return carta;}
+
+function criarCarta(p){
+  const carta=document.createElement('div');
+  carta.className='carta-pokemon tipo-'+(tipoArquivo[p.types[0]?.type.name]||p.types[0]?.type.name||'normal');
+  carta.dataset.id=p.id;
+  carta.dataset.nome=p.name;
+  carta.dataset.geracao=geracaoDo(p.id);
+
+  // ESTRELA - verifica se está favoritado
+  const ehFav = typeof estaFavoritado === 'function' ? estaFavoritado(p.name) : false;
+  const estrela = document.createElement('span');
+  estrela.className = 'estrela' + (ehFav ? ' ativo' : '');
+  estrela.textContent = ehFav ? '★' : '☆';
+  estrela.onclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if(typeof toggleFavorito === 'function') toggleFavorito(p.name, estrela);
+  };
+
+  const info=document.createElement('div');
+  info.className='info-pokemon';
+  const img=document.createElement('img');
+  img.src=p.sprites?.other?.['official-artwork']?.front_default||p.sprites?.front_default||'';
+  img.alt=p.name;img.loading='lazy';
+  const num=document.createElement('h3');
+  num.textContent='#'+String(p.id).padStart(3,'0');
+  const a=document.createElement('a');
+  a.href='pokemon-info.html?pokemon='+encodeURIComponent(p.name);
+  const nome=document.createElement('h3');
+  nome.textContent=p.name;
+  a.appendChild(nome);
+  const tipos=document.createElement('div');
+  tipos.className='tipos';
+  p.types.forEach(x=>{const tipo=x.type.name;const ic=document.createElement('img');ic.src='imagenes/tipo-'+(tipoArquivo[tipo]||tipo)+'.png';ic.alt='';ic.onerror=()=>ic.style.display='none';const label=document.createElement('h3');label.textContent=nomeTipo(tipo);tipos.append(ic,label);});
+  info.append(img,num,a,tipos);
+  carta.append(estrela, info);
+  return carta;
+}
+
 async function detalhe(p){if(cache.has(p.name))return cache.get(p.name);const r=await fetch(p.url);if(!r.ok)throw Error('Falha ao carregar '+p.name);const d=await r.json();cache.set(p.name,d);return d;}
 function filtrados(){const texto=(campoPesquisa?.value||'').trim().toLowerCase();return listaPokemon.filter(p=>(!texto||p.name.includes(texto)||String(p.id).includes(texto))&&(!geracaoSelecionada||geracaoDo(p.id)===geracaoSelecionada));}
 function estado(msg){let el=document.getElementById('estado-api');if(!el){el=document.createElement('p');el.id='estado-api';container.prepend(el);}el.textContent=msg;}
