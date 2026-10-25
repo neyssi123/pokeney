@@ -28,10 +28,10 @@ function renderStatusBarras(){
   const cont=document.getElementById('status-barras'); if(!cont||!Object.keys(baseStats).length) return;
   let total=0;
   cont.innerHTML=Object.keys(baseStats).map(k=>{
-    const v=baseStats[k]; total+=v;
+    const v = calc(k);; total+=v;
     const plus=NATURES[natureza] && NATURES[natureza]['+']===k;
     const minus=NATURES[natureza] && NATURES[natureza]['-']===k;
-    const pct=Math.min(v/255*100,100);
+    const pct = Math.min(v / 714 * 100, 100);
     return `<div style="display:flex;align-items:center;gap:8px;font-size:12px"><span style="width:95px;font-weight:bold;font-size:11px;color:${plus?'#16a34a':minus?'#ef4444':'#111'}">${k}${plus?' +':minus?' -':''}</span><span style="width:30px">${v}</span><div style="flex:1;background:#e5e7eb;height:12px;border-radius:6px;overflow:hidden"><div style="height:100%;width:${pct}%;background:${plus?'#16a34a':minus?'#ef4444':cores[k]}"></div></div><b style="width:55px;text-align:right;color:${plus?'#16a34a':minus?'#ef4444':'#111'}">${calc(k)}${plus?' ▲':minus?' ▼':''}</b></div>`;
   }).join('');
   const bt=document.getElementById('base-total'); if(bt) bt.textContent=total;

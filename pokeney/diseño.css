@@ -1,145 +1,308 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(29, 29, 89);
+    color: aliceblue;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Cabecera */
 header {
-    text-align: left;
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    min-height: 60px;
+    padding: 12px 25px;
     border-bottom: 1px solid #090909;
-    gap: 40px;
-    padding-left: 30px;
+    color: aliceblue;
+    background-color: rgb(29, 29, 89);
     font-family: "Press Start 2P", cursive;
-    min-height: 10px;
-    color:aliceblue;
-    background-color: rgb(2, 2, 81);
 }
 
 .boton {
-    text-align: left;
     display: flex;
-    gap: 50px;
-    font-family: "Press Start 2P", cursive;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-left: 15px;
     border-left: 2px solid black;
-    padding-left: 20px;
-    align-items: center;
-    background-color: rgb(2, 2, 81);
+    background-color: rgb(29, 29, 89);
 }
 
-.boton a{
+.boton a,
+.boton a:visited {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
     border-right: 2px solid black;
-    color:aliceblue;
-    padding-right: 40px;
-    align-self: stretch;
-    align-items: center;
+    color: aliceblue;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.boton a:hover {
+    color: white;
+    background-color: #191970;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
+}
+
+#conteudo,
+#contenido {
     display: flex;
+    align-items: stretch;
+}
+
+#geracao {
+    width: 200px;
+    min-width: 160px;
+    padding: 15px;
+    color: aliceblue;
+    background-color: rgb(29, 29, 89);
     font-family: "Press Start 2P", cursive;
 }
 
-#contenido{
-    display: flex;
+#geracao button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 6px;
+    border: 1px solid #303080;
+    border-radius: 6px;
+    color: aliceblue;
+    background-color: rgb(29, 29, 89);
+    cursor: pointer;
 }
 
-#geracao{
-    font-family: "Press Start 2P", cursive;
-    width: 12.7%;
-    color:aliceblue;
-    background-color: rgb(11, 11, 109);
+#geracao button:hover {
+    background-color: #191970;
 }
 
-#pokemons{
-    width: 87.3%;
+.imagen-geracao img {
+    position: relative;
+    top: 18px;
+    width: 50px;
+    height: auto;
+}
+
+#pokemons {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     align-content: flex-start;
+    min-width: 0;
+    background-color: rgb(29, 29, 89);
+}
+
+.carta-pokemon {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #303080;
+    color: aliceblue;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.2s;
+}
+
+.carta-pokemon:hover {
+    background-color: #10105c;
+}
+
+.carta-pokemon hr {
+    margin: 0;
+    border-color: #303080;
 }
 
 .info-pokemon {
     display: flex;
     align-items: center;
-}
-
-.info-pokemon img{
-  margin-right: 30px;
-}
-    
-.tipos {
-    display: flex;
-    gap: 30px;
-    margin-left: 50px;
-}
-
-#pokemons img{
-    height: auto;
-    height:80px;
-    padding:0px;
-}
-
-.carta-pokemon{
-    font-family: Arial, sans-serif;
-    width: 100%;
-    padding: 0px;
-}
-
-.carta-pokemon hr {
-    margin: 0;
-}
-
-body{
-    margin: 0px;
-    padding: 0px;
-}
-
-#geracao button{
-    background-color: rgb(11, 11, 109);
-    color: aliceblue;
-}
-
-.imagen-geracao img {
-    width: 50px;
-    height: auto;
-    position: relative;
-    top: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px;
 }
 
 .info-pokemon img {
     width: 120px;
     height: 80px;
-    object-fit: contain;
     margin: 0;
+    object-fit: contain;
 }
 
 .info-pokemon > h3 {
     width: 100px;
+    overflow-wrap: anywhere;
 }
 
 .info-pokemon > a {
     width: 180px;
+    overflow-wrap: anywhere;
+}
+
+.info-pokemon a,
+.info-pokemon a:visited,
+.carta-pokemon a,
+.carta-pokemon a:visited {
+    color: #93c5fd;
+    text-decoration: none;
+}
+
+.info-pokemon a:hover,
+.carta-pokemon a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.info-pokemon a:active,
+.carta-pokemon a:active {
+    color: #bfdbfe;
 }
 
 .tipos {
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-left: 0;
 }
 
-.tipos img{
+.tipos img {
     width: 35px;
     height: 35px;
-  
-
+    object-fit: contain;
 }
 
-.itens-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
-  gap:16px;
-  padding:20px;
+.itens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+    gap: 16px;
+    padding: 20px;
 }
-.item-card{
-  background:#1e293b;
-  border:1px solid #334155;
-  border-radius:12px;
-  padding:12px;
-  text-align:center;
-  color:#fff;
+
+.item-card {
+    position: relative;
+    padding: 12px;
+    border: 1px solid #303080;
+    border-radius: 12px;
+    color: aliceblue;
+    background-color: #10105c;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-.item-card img{ width:60px; height:60px; }
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.item-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.item-card a,
+.item-card a:visited {
+    color: #93c5fd;
+}
+
+.estrela {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 5;
+    color: #94a3b8;
+    font-size: 26px;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.estrela:hover {
+    transform: scale(1.15);
+}
+
+.estrela.ativo {
+    color: #facc15;
+}
+
+.tipo-fogo {
+    background-color: rgba(205, 51, 0, 0.755);
+}
+
+.tipo-normal {
+    background-color: rgba(229, 207, 193, 0.755);
+}
+
+.tipo-agua {
+    background-color: rgba(29, 55, 220, 0.755);
+}
+
+.tipo-planta {
+    background-color: rgba(8, 159, 0, 0.755);
+}
+
+.tipo-eletrico {
+    background-color: rgba(248, 236, 12, 0.755);
+}
+
+.tipo-lutador {
+    background-color: rgba(238, 37, 6, 0.755);
+}
+
+.tipo-veneno {
+    background-color: rgba(170, 0, 255, 0.755);
+}
+
+.tipo-terrestre {
+    background-color: rgba(255, 183, 0, 0.755);
+}
+
+.tipo-psiquico {
+    background-color: rgba(252, 0, 218, 0.755);
+}
+
+.tipo-inseto {
+    background-color: rgba(26, 255, 0, 0.755);
+}
+
+.tipo-pedra {
+    background-color: rgba(139, 69, 19, 0.714);
+}
+
+.tipo-fantasma {
+    background-color: rgba(22, 54, 119, 0.755);
+}
+
+.tipo-dragao {
+    background-color: rgba(4, 86, 240, 0.755);
+}
+
+.tipo-sombrio {
+    background-color: rgba(9, 52, 63, 0.755);
+}
+
+.tipo-aço {
+    background-color: rgba(46, 93, 150, 0.755);
+}
+
+.tipo-fada {
+    background-color: rgba(214, 78, 245, 0.755);
+}
+
+.tipo-gelo {
+    background-color: aqua;
+}
 
 footer {
     display: flex;
@@ -147,91 +310,104 @@ footer {
     align-items: center;
     gap: 10px;
     padding: 25px;
-    background-color: #111b35;
     color: white;
+    background-color: rgb(29, 29, 89);
+    border-top: 1px solid #303080;
+    text-align: center;
 }
-
-.estrela{
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #94a3b8;
-}
-.estrela.ativo{
-    color: #facc15;
-}
-.item-card{
-    position: relative;
-}
-
-.carta-pokemon{ position: relative; }
-.estrela{
-    position:absolute;
-    top: 8px; right: 10px;
-    font-size: 26px;
-    cursor: pointer;
-    color: #94a3b8;
-    z-index: 5;
-}
-.estrela.ativo{ color: #facc15;}
 
 footer p {
     margin: 0;
 }
 
-.tipo-fogo{
-    background-color: rgba(230, 96, 14, 0.755);
+@media (max-width: 900px) {
+    header {
+        gap: 12px;
+        padding: 12px 15px;
+    }
+
+    .boton {
+        gap: 4px;
+        padding-left: 8px;
+    }
+
+    .boton a {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    #geracao {
+        width: 180px;
+    }
+
+    .info-pokemon img {
+        width: 90px;
+        height: 80px;
+    }
 }
-.tipo-normal{
-    background-color: rgba(229, 207, 193, 0.755);
-}
-.tipo-agua{
-    background-color: rgba(29, 55, 220, 0.755);
-}
-.tipo-planta{
-    background-color: rgba(8, 159, 0, 0.755);
-}
-.tipo-fogo{
-    background-color: rgba(205, 51, 0, 0.755);
-}
-.tipo-elétrico{
-    background-color: rgba(248, 236, 12, 0.755);
-}
-.tipo-Lutador{
-    background-color: rgba(238, 37, 6, 0.755);
-}
-.tipo-Venenoso{
-    background-color: rgba(170, 0, 255, 0.755);
-}
-.tipo-Terrestre{
-    background-color: rgba(255, 183, 0, 0.755);
-}
-.tipo-Psíquico {
-    background-color: rgba(252, 0, 218, 0.755);
-}
-.tipo-Inseto {
-    background-color: rgba(26, 255, 0, 0.755);
-}
-.tipo-Pedra {
-    background-color: rgba(139, 69, 19, 0.714);
-}
-.tipo-Fantasma {
-    background-color: rgba(22, 54, 119, 0.755);
-}
-.tipo-Dragão  {
-    background-color: rgba(4, 86, 240, 0.755);
-}
-.tipo-Sombrio  {
-    background-color: rgba(9, 52, 63, 0.755);
-}
-.tipo-Aço   {
-    background-color: rgba(46, 93, 150, 0.755);
-}
-.tipo-Fada   {
-    background-color: rgba(214, 78, 245, 0.755);
-}
-.tipo-gelo{
-    background-color: aqua;
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+
+    .boton {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .boton a {
+        min-height: 42px;
+        padding: 12px;
+        border-right: none;
+        border-bottom: 1px solid #303080;
+        font-size: 10px;
+    }
+
+    #conteudo,
+    #contenido {
+        flex-direction: column;
+    }
+
+    #geracao {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #pokemons {
+        width: 100%;
+    }
+
+    .info-pokemon {
+        gap: 8px;
+    }
+
+    .info-pokemon img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .info-pokemon > h3,
+    .info-pokemon > a {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .tipos {
+        gap: 5px;
+    }
+
+    .itens-grid {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    footer {
+        padding: 20px 12px;
+    }
 }

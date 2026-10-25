@@ -1,0 +1,142 @@
+.inicio {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    color: aliceblue;
+    text-align: center;
+}
+
+.logo {
+    width: 250px;
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.inicio h2 {
+    margin-bottom: 15px;
+    color: white;
+    font-size: clamp(24px, 4vw, 36px);
+}
+
+.inicio p {
+    max-width: 750px;
+    margin: 0 auto 20px;
+    color: #dbeafe;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.recursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.recurso {
+    padding: 25px 20px;
+    border: 1px solid #303080;
+    border-radius: 14px;
+    color: aliceblue;
+    background-color: #10105c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recurso:hover {
+    transform: translateY(-5px);
+    background-color: #15156b;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.recurso h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: white;
+    font-size: 21px;
+}
+
+.recurso p {
+    margin-bottom: 18px;
+    color: #dbeafe;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.recurso a,
+.recurso a:visited {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.recurso a:hover {
+    color: white;
+    background-color: #1d4ed8;
+}
+
+.recurso a:active {
+    background-color: #1e40af;
+}
+
+.recurso a:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .inicio {
+        margin: 25px auto;
+        padding: 20px 15px;
+    }
+
+    .recursos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .recurso {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .inicio {
+        margin: 15px auto;
+        padding: 15px 12px;
+    }
+
+    .logo {
+        width: 190px;
+    }
+
+    .inicio p {
+        font-size: 15px;
+    }
+
+    .recursos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .recurso h3 {
+        font-size: 19px;
+    }
+
+    .recurso {
+        padding: 20px 15px;
+    }
+}
+

@@ -1,4 +1,3 @@
-// Catálogo Pokeney integrado à PokéAPI (sem chave de acesso).
 const API = 'https://pokeapi.co/api/v2';
 const campoPesquisa = document.getElementById('campo-pesquisa');
 const botoesGeracao = document.querySelectorAll('#geracao button');
@@ -19,7 +18,6 @@ function criarCarta(p){
   carta.dataset.nome=p.name;
   carta.dataset.geracao=geracaoDo(p.id);
 
-  // ESTRELA - verifica se está favoritado
   const ehFav = typeof estaFavoritado === 'function' ? estaFavoritado(p.name) : false;
   const estrela = document.createElement('span');
   estrela.className = 'estrela' + (ehFav ? ' ativo' : '');
