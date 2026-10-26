@@ -1,4 +1,4 @@
-body {
+Body {
     margin: 0;
     background-color: rgb(29, 29, 89);
     color: aliceblue;
@@ -300,6 +300,7 @@ body {
     height: 100%;
     width: 0%;
     background-color: #3b82f6;
+    transition: width 0.4s ease; /* Transición suave añadida para las barras de stats */
 }
 
 a,
