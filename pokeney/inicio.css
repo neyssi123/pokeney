@@ -46,7 +46,7 @@
     color: aliceblue;
     background-color: #10105c;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
 .recurso:hover {
@@ -139,4 +139,3 @@
         padding: 20px 15px;
     }
 }
-
