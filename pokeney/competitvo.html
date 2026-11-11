@@ -8,8 +8,7 @@
     #showdown{
       max-width:1100px;
       margin:0 auto;
-      padding:15px;
-      color:#333
+      padding:15px
     }
     .team-box{
       background:white;
@@ -24,7 +23,7 @@
       align-items:start
     }
     .slot{
-      border:2px dashed #fd0000;
+      border:2px dashed #ccc;
       border-radius:8px;
       padding:8px;
       text-align:center;
@@ -66,19 +65,6 @@
     }
     .minimized{
       display:none !important
-    }
-    
-    #moves-tabela td {
-  color: #333;
-    }
-
-    #moves-tabela td b {
-  color: #2563eb;
-      font-weight: bold;
-    }
-
-    #moves-tabela td small {
-  color: #666;
     }
 
   </style>
@@ -137,7 +123,7 @@
         <label style="font-weight:bold;display:flex;justify-content:space-between">Meu Time (6) <button onclick="limparTime()" style="font-size:10px;background:#ef4444;color:white;border:none;padding:2px 6px;border-radius:4px;cursor:pointer">Limpar</button></label>
         <div id="time-slots" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"></div>
         <button onclick="exportarTime()" style="width:100%;margin-top:8px;background:#111827;color:white;padding:6px;border-radius:6px;border:none;cursor:pointer">Exportar Showdown</button>
-        <pre id="export" style="font-size:12px;color:#111827;white-space:pre-wrap;background:#f3f4f6;padding:10px;border-radius:4px;margin-top:6px;display:none;overflow-wrap:anywhere"></pre>
+        <pre id="export" style="font-size:10px;white-space:pre-wrap;background:white;padding:6px;border-radius:4px;margin-top:6px;display:none"></pre>
       </div>
     </div>
   </div>
@@ -148,8 +134,8 @@
     <div id="ev-lines"></div>
     <div style="margin-top:10px">Nature: <select id="c-natureza"></select></div>
   </div>
-  <div style="margin-top:15px;background:white;border:1px solid #ccc;border-radius:8px;padding:15px"><h3>Habilidades</h3><div id="hab-desc"></div></div>
-  <details open style="margin-top:15px;background:white;border:1px solid #ccc;border-radius:8px;padding:15px"><summary style="cursor:pointer;font-weight:bold"><span>ataques - <span id="moves-poke-nome">GARCHOMP</span></span></summary><div id="moves-tabela" style="margin-top:15px"></div></details>
+  <div style="margin-top:15px;background:white;border:1px solid #ccc;border-radius:8px;padding:15px"><h3>🧬 Habilidades</h3><div id="hab-desc"></div></div>
+  <details open style="margin-top:15px;background:white;border:1px solid #ccc;border-radius:8px;padding:15px"><summary style="cursor:pointer;font-weight:bold"><span>📋 ataques - <span id="moves-poke-nome">GARCHOMP</span></span></summary><div id="moves-tabela" style="margin-top:15px"></div></details>
 </main>
 <datalist id="lista-pokes"></datalist><datalist id="lista-itens"></datalist><datalist id="lista-moves"></datalist>
 <script src="competitivo.js"></script>
