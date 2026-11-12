@@ -47,6 +47,7 @@ function mostrar(lista) {
   }).join('')
 }
 
+
 busca.addEventListener('input', () => {
   const termo = busca.value.toLowerCase()
   const filtrados = todosItens.filter(i => i.nome.includes(termo))

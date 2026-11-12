@@ -1,3 +1,4 @@
+
 // Catálogo Pokeney integrado à PokéAPI (sem chave de acesso).
 const API = 'https://pokeapi.co/api/v2';
 const campoPesquisa = document.getElementById('campo-pesquisa');

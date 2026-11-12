@@ -391,4 +391,5 @@ const pokemones = {
       },
     ],
   },
+  
 };

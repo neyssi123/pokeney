@@ -1,3 +1,4 @@
+
 // Página de detalhes alimentada pela PokéAPI, mantendo dados personalizados de pokemones.js.
 const API='https://pokeapi.co/api/v2';
 const params=new URLSearchParams(location.search);
