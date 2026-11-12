@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     if(e.target.classList.contains('iv')) ivs[k]=Math.min(31,novo);
     atualizarUI();
   });
+  
   const btnAdd=document.getElementById('btn-add-time');
   if(btnAdd) btnAdd.addEventListener('click',()=>{
     const movesAtuais=[...document.querySelectorAll('#c-moves input')].map(i=>i.value).filter(Boolean);
@@ -167,7 +168,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   fetch(`${API}/pokemon?limit=1025`).then(r=>r.json()).then(d=>{ const dl=document.getElementById('lista-pokes'); if(dl) dl.innerHTML=d.results.map(p=>`<option value="${p.name}">`).join(''); });
   renderTime();
 });
-
 
 window.setLevel=(v)=>{ level=v; atualizarUI(); };
 window.calc=calc;
