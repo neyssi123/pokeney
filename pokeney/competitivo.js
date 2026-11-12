@@ -170,4 +170,4 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 
 
 window.setLevel=(v)=>{ level=v; atualizarUI(); };
-window.calc=calc;
+ window.calc=calc;
