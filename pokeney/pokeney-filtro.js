@@ -1,3 +1,4 @@
+// Catálogo Pokeney integrado à PokéAPI (sem chave de acesso).
 const API = 'https://pokeapi.co/api/v2';
 const campoPesquisa = document.getElementById('campo-pesquisa');
 const botoesGeracao = document.querySelectorAll('#geracao button');
@@ -6,7 +7,7 @@ const TAMANHO_PAGINA = 30;
 let geracaoSelecionada = 0, listaPokemon = [], exibidos = 0, carregando = false;
 const geracoes = [{min:1,max:151},{min:152,max:251},{min:252,max:386},{min:387,max:493},{min:494,max:649},{min:650,max:721},{min:722,max:809},{min:810,max:905},{min:906,max:1025}];
 const tiposPt={normal:'Normal',fire:'Fogo',water:'Água',electric:'Elétrico',grass:'Planta',ice:'Gelo',fighting:'Lutador',poison:'Veneno',ground:'Terrestre',flying:'Voador',psychic:'Psíquico',bug:'Inseto',rock:'Pedra',ghost:'Fantasma',dragon:'Dragão',dark:'Sombrio',steel:'Aço',fairy:'Fada'};
-const tipoArquivo={fire:'fogo',water:'agua',electric:'eletrico',grass:'planta',ice:'gelo',fighting:'lutador',poison:'veneno',ground:'terrestre',flying:'voador',psychic:'psiquico',bug:'inseto',rock:'pedra',ghost:'fantasma',dragon:'dragao',dark:'sombrio',steel:'aco',fairy:'fada',normal:'normal'};
+const tipoArquivo={fire:'fogo',water:'agua',electric:'eletrico',grass:'planta',ice:'gelo',fighting:'lutador',poison:'veneno',ground:'terrestre',flying:'voador',psychic:'psiquico',bug:'inseto',rock:'pedra',ghost:'fantasma',dragon:'dragao',dark:'sombrio',steel:'aço',fairy:'fada',normal:'normal'};
 const cache=new Map();
 function geracaoDo(id){return geracoes.findIndex(g=>id>=g.min&&id<=g.max)+1||9;}
 function nomeTipo(t){return tiposPt[t]||t;}
@@ -18,6 +19,7 @@ function criarCarta(p){
   carta.dataset.nome=p.name;
   carta.dataset.geracao=geracaoDo(p.id);
 
+  // ESTRELA - verifica se está favoritado
   const ehFav = typeof estaFavoritado === 'function' ? estaFavoritado(p.name) : false;
   const estrela = document.createElement('span');
   estrela.className = 'estrela' + (ehFav ? ' ativo' : '');
