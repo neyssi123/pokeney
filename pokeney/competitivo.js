@@ -129,6 +129,7 @@ function renderTime(){
     return `<div class="slot filled" onclick="carregarDoSlot(${i})"><button class="remove" onclick="event.stopPropagation();removerSlot(${i})">x</button><img class="poke" src="${p.img}"><br><b style="font-size:11px">${p.nome}</b><br><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${p.item}.png" style="width:18px;height:18px;vertical-align:middle" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'"><small style="font-size:9px"> ${p.item}</small></div>`;
   }).join('');
 }
+
 window.removerSlot=(i)=>{ time[i]=null; salvarTime(); }
 window.carregarDoSlot=async (i)=>{ if(!time[i]) return; pendingRestore=time[i]; evs=time[i].evs; await carregarPokemon(time[i].nome); }
 window.limparTime=()=>{ if(confirm('Limpar time?')){ time=[null,null,null,null,null,null]; salvarTime(); } }
@@ -157,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     if(e.target.classList.contains('iv')) ivs[k]=Math.min(31,novo);
     atualizarUI();
   });
-  
+
   const btnAdd=document.getElementById('btn-add-time');
   if(btnAdd) btnAdd.addEventListener('click',()=>{
     const movesAtuais=[...document.querySelectorAll('#c-moves input')].map(i=>i.value).filter(Boolean);
