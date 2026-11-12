@@ -5,6 +5,7 @@ function getFavoritos(){
 function salvarFavoritos(lista){
   localStorage.setItem('pokeney_favoritos', JSON.stringify(lista))
 }
+ 
 
 function toggleFavorito(id, el){
   let favs = getFavoritos()
