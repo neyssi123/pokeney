@@ -168,5 +168,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   renderTime();
 });
 
+
 window.setLevel=(v)=>{ level=v; atualizarUI(); };
 window.calc=calc;
