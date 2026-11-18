@@ -8,6 +8,18 @@ async function detalhe(url){ if(cache.has(url)) return cache.get(url); const r=a
 function limpar(n){ return n.toLowerCase().replace('-primal','').replace('-mega','').trim(); }
 function calc(k){ const b=baseStats[k]; if(!b) return 0; let v; if(k==='hp') v=Math.floor(((2*b+ivs[k]+Math.floor(evs[k]/4))*level)/100)+level+10; else { v=Math.floor(((2*b+ivs[k]+Math.floor(evs[k]/4))*level)/100)+5; if(NATURES[natureza] && NATURES[natureza]['+']===k) v=Math.floor(v*1.1); if(NATURES[natureza] && NATURES[natureza]['-']===k) v=Math.floor(v*0.9); } return v; }
 
+function toggleSecao(id, botao){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const aberto = el.style.display === 'block';
+  el.style.display = aberto ? 'none' : 'block';
+  if(botao){
+    const seta = botao.querySelector('.seta');
+    if(seta) seta.textContent = aberto ? '▼' : '▲';
+  }
+}
+window.toggleSecao = toggleSecao;
+
 async function carregarNatures(){
   const lista = await detalhe(`${API}/nature?limit=25`);
   const detalhes = await Promise.all(lista.results.map(r=>detalhe(r.url)));
@@ -142,7 +154,17 @@ window.exportarTime=()=>{
 
 document.addEventListener('DOMContentLoaded', async ()=>{
   await carregarNatures();
-  const params=new URLSearchParams(location.search); carregarPokemon(params.get('pokemon')||'garchomp');
+
+  // Começa minimizado
+  const cItens = document.getElementById('conteudo-itens');
+  if(cItens) cItens.style.display = 'none';
+  const cAtaques = document.getElementById('conteudo-ataques');
+  if(cAtaques) cAtaques.style.display = 'none';
+
+  // Não carrega nenhum Pokémon no começo
+  const params=new URLSearchParams(location.search);
+  if(params.get('pokemon')) carregarPokemon(params.get('pokemon'));
+
   const input=document.getElementById('c-nome'); const btn=document.getElementById('btn-troca');
   const trocar=()=>{ const v=input.value.trim(); if(v){ history.replaceState({},'','?pokemon='+v); carregarPokemon(v); } };
   if(btn) btn.addEventListener('click',trocar); if(input) input.addEventListener('keydown',e=>{ if(e.key==='Enter') trocar(); });

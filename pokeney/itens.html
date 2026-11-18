@@ -4,6 +4,37 @@
   <meta charset="UTF-8">
   <title>Pokeney - Itens</title>
   <link rel="stylesheet" href="diseño.css">
+  <style>
+  body{
+    background: linear-gradient(180deg,#0B1D4A,#1E3A8A,#0EA5E9) !important;
+    margin:0;
+  }
+  main{ max-width:900px; margin:0 auto; padding:20px 15px; }
+  #buscaItem{
+    width:100%; padding:14px; border-radius:15px; border:none;
+    font-size:16px; outline:none; box-shadow:0 5px 15px rgba(0,0,0,.3);
+  }
+  #status{ color:white; text-align:center; }
+  #itens-grid{
+    display:grid; grid-template-columns:repeat(5,1fr);
+    gap:14px; margin-top:20px;
+  }
+  #itens-grid .item-card, #itens-grid .card{
+    background:white !important; border-radius:20px; text-align:center;
+    padding:20px 10px; border-top:6px solid #FFCB05;
+    box-shadow:0 10px 25px rgba(0,0,0,.35); transition:.2s;
+  }
+  #itens-grid .item-card:hover{ transform:translateY(-8px) scale(1.03); }
+  #itens-grid img{
+    width:75px; height:75px; background:#F1F5F9;
+    border-radius:50%; padding:8px; object-fit:contain;
+  }
+  #itens-grid h3{ color:#1E3A8A; text-transform:capitalize; margin:10px 0 4px; }
+  #itens-grid p{ color:#64748B; font-weight:700; margin:0; }
+  @media(max-width:700px){
+    #itens-grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
+  }
+</style>
 </head>
 <body>
 <header>

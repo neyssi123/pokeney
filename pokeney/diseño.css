@@ -181,58 +181,174 @@ footer p {
     margin: 0;
 }
 
-.tipo-fogo{
-    background-color: rgba(230, 96, 14, 0.755);
-}
-.tipo-normal{
-    background-color: rgba(229, 207, 193, 0.755);
-}
-.tipo-agua{
-    background-color: rgba(29, 55, 220, 0.755);
-}
-.tipo-planta{
-    background-color: rgba(8, 159, 0, 0.755);
-}
-.tipo-fogo{
+.tipo-fogo {
     background-color: rgba(205, 51, 0, 0.755);
 }
-.tipo-elétrico{
+.tipo-normal {
+    background-color: rgba(229, 207, 193, 0.755);
+}
+.tipo-agua {
+    background-color: rgba(29, 55, 220, 0.755);
+}
+.tipo-planta {
+    background-color: rgba(8, 159, 0, 0.755);
+}
+.tipo-eletrico {
     background-color: rgba(248, 236, 12, 0.755);
 }
-.tipo-Lutador{
+.tipo-lutador {
     background-color: rgba(238, 37, 6, 0.755);
 }
-.tipo-Venenoso{
+.tipo-venenoso {
     background-color: rgba(170, 0, 255, 0.755);
 }
-.tipo-Terrestre{
+.tipo-terrestre {
     background-color: rgba(255, 183, 0, 0.755);
 }
-.tipo-Psíquico {
+.tipo-voador {
+    background-color: rgba(168, 144, 243, 0.755);
+}
+.tipo-psiquico {
     background-color: rgba(252, 0, 218, 0.755);
 }
-.tipo-Inseto {
+.tipo-inseto {
     background-color: rgba(26, 255, 0, 0.755);
 }
-.tipo-Pedra {
+.tipo-pedra {
     background-color: rgba(139, 69, 19, 0.714);
 }
-.tipo-Fantasma {
+.tipo-fantasma {
     background-color: rgba(22, 54, 119, 0.755);
 }
-.tipo-Dragão  {
+.tipo-dragao {
     background-color: rgba(4, 86, 240, 0.755);
 }
-.tipo-Sombrio  {
+.tipo-sombrio {
     background-color: rgba(9, 52, 63, 0.755);
 }
-.tipo-Aço   {
+.tipo-aco {
     background-color: rgba(46, 93, 150, 0.755);
 }
-.tipo-Fada   {
+.tipo-fada {
     background-color: rgba(214, 78, 245, 0.755);
 }
-.tipo-gelo{
+.tipo-gelo {
     background-color: aqua;
 }
 
+#campo-pesquisa {
+    width: 90%;
+    padding: 10px;
+    margin: 15px 0px 15px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+#geracao button {
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+#geracao button:hover {
+    background-color: rgb(30, 30, 160);
+}
+
+#geracao button h4 {
+    margin: 0;
+}
+
+.carta-pokemon {
+    border-radius: 15px;
+    margin: 10px;
+    padding: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.30);
+    transition: transform 0.2s;
+}
+
+.carta-pokemon:hover {
+    transform: scale(1.03);
+}
+
+.info-pokemon h3 {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.info-pokemon a {
+    color: white;
+    text-decoration: none;
+}
+
+#showdown{
+      max-width:1100px;
+      margin:0 auto;
+      padding:15px
+    }
+    .team-box{
+      background:white;
+      border:1px solid #ccc;
+      border-radius:8px;
+      padding:15px
+    }
+    .grid-top{
+      display:grid;
+      grid-template-columns:1.1fr 1fr 340px;
+      gap:20px;
+      align-items:start
+    }
+    .slot{
+      border:2px dashed #ccc;
+      border-radius:8px;
+      padding:8px;
+      text-align:center;
+      cursor:pointer;
+      min-height:95px;
+      background:#f9fafb;
+      position:relative
+    }
+    .slot.filled{
+      border-style:solid;
+      border-color:#2563eb;
+      background:white
+    }
+    .slot img.poke{
+      width:60px;
+      height:60px
+    }
+    .slot .remove{
+      position:absolute;
+      top:2px;
+      right:4px;
+      background:red;
+      color:white;
+      border:none;
+      border-radius:50%;
+      width:18px;
+      height:18px;
+      cursor:pointer;
+      font-size:10px
+    }
+    #c-img{
+      width:200px !important;
+      height:200px !important;
+      background:radial-gradient(#f3f4f6,#e5e7eb);
+      border-radius:16px;
+      padding:10px;
+      display:block;
+      margin:0 auto
+    }
+    .minimized{
+      display:none !important
+    }
+
+    body{
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+}

@@ -5,6 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokeney - Favoritos</title>
   <link rel="stylesheet" href="diseño.css">
+  <style>
+  body{
+    background: linear-gradient(180deg,#0B1D4A,#1E3A8A,#0EA5E9) !important;
+    margin:0;
+  }
+  main h1, #status{ color:white !important; text-align:center; }
+  #favoritos-grid{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:18px; max-width:900px; margin:20px auto; padding:0 15px;
+  }
+  .item-card{
+    background:white !important; border-radius:20px; text-align:center;
+    padding:20px 10px; border-top:6px solid #FFCB05;
+    box-shadow:0 10px 25px rgba(0,0,0,.35); transition:.2s;
+  }
+  .item-card:hover{ transform:translateY(-8px) scale(1.03); }
+  .item-card img{
+    width:110px; height:110px; background:#F1F5F9;
+    border-radius:50%; padding:10px;
+  }
+  .item-card h3{ color:#1E3A8A; text-transform:capitalize; }
+  @media(max-width:700px){
+    #favoritos-grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
+  }
+</style>
 </head>
 <body>
 <header>
@@ -20,7 +45,7 @@
 
 
   <main>
-    <h1>Seus Favoritos</h1>
+    <h1>Seus Favoritos</h1> 
     <div id="status">Carregando...</div>
     <div id="favoritos-grid" class="grid"></div>
   </main>
