@@ -19,7 +19,6 @@ body{
   padding: 12px;
 }
 
-/* nome */
 #nome-pokemon{
   display: flex;
   align-items: center;
@@ -259,7 +258,6 @@ body{
   object-fit: contain;
 }
 
-/* shiny */
 #shiny-img{
   display: flex;
   width: 100%;
